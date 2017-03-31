@@ -1,0 +1,12 @@
+<ion-view view-title="Perfil">
+	<ion-content>
+		<ion-list>
+			
+			<ion-item href="#" ng-repeat="user in users">
+				{{user.nombre}} {{user.apellido}}
+				<p>{{user.user}} | {{user.edad}} </p>
+			</ion-item>
+
+		</ion-list>
+	</ion-content>
+</ion-view>
