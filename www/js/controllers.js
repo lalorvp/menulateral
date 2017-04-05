@@ -85,8 +85,17 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
+.controller('DetalleCtrl', function($scope, $stateParams){
+  $scope.$on('$ionicView.enter', function(){
+    $scope.usuario = $stateParams.usuario;  
+  });
+  
+
+})
+
+.controller('PlaylistsCtrl', function($scope, $ionicFilterBar) {
+  
+  var original = [
     { title: 'Reggae', id: 1 },
     { title: 'Chill', id: 2 },
     { title: 'Dubstep', id: 3 },
@@ -94,7 +103,34 @@ angular.module('starter.controllers', [])
     { title: 'Rap', id: 5 },
     { title: 'Cowbell', id: 6 }
   ];
+
+  $scope.playlists = original;
+
+  var filter;
+
+  $scope.showFilterBar = function(){
+    filter = $ionicFilterBar.show({
+      items: original,
+      update: function(filtrados, texto){
+        $scope.playlists = filtrados
+      }
+
+    })
+    
+  } 
+
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+.controller('PlaylistCtrl', function($scope, $stateParams, ionicDatePicker) {
+
+  var config = {
+    callback: function(value){
+      console.log(value);
+      console.log(new Date(value));
+    }
+  }
+
+  $scope.onAbrir = function(){
+    ionicDatePicker.openDatePicker(config);
+  }
 });

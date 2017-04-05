@@ -2,7 +2,7 @@
 	<ion-content>
 		<ion-list>
 			
-			<ion-item href="#" ng-repeat="user in users">
+			<ion-item ui-sref="app.detalle({usuario:user})" ng-repeat="user in users">
 				{{user.nombre}} {{user.apellido}}
 				<p>{{user.user}} | {{user.edad}} </p>
 			</ion-item>

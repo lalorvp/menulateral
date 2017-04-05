@@ -8,7 +8,9 @@ angular.module('starter', [
   'ionic', 
   'starter.controllers',
   'misservicios',
-  'misconstantes'
+  'misconstantes',
+  'ionic-datepicker',
+  'jett.ionic.filter.bar'
   ])
 
 .run(function($ionicPlatform) {
@@ -68,6 +70,18 @@ angular.module('starter', [
         }
       }
     })
+    .state('app.detalle', {
+      url: '/detalle',
+      params: {
+        usuario: null
+      },
+      views: {
+        'menuContent':{
+          templateUrl: 'templates/detalle.html',
+          controller: 'DetalleCtrl',
+        }
+      }
+    })
 
   .state('app.search', {
     url: '/search',
@@ -106,5 +120,5 @@ angular.module('starter', [
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/login');
+  $urlRouterProvider.otherwise('/app/list');
 });

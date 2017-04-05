@@ -1,4 +1,10 @@
 <ion-view view-title="Playlists">
+	<ion-nav-buttons side="secondary">
+		<button class="button button-icon icon ion-ion-search-strong" ng-click="showFilterBar()"> 
+			
+		</button>
+	</ion-nav-buttons>
+
   <ion-content>
     <ion-list>
       <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
